@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :tickets
   end
 
+  resources :users
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
