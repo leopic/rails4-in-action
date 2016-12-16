@@ -2,11 +2,15 @@ require 'rails_helper'
 
 describe 'Viewing Tickets' do
   before do
+    user = FactoryGirl.create(:user)
+
     typora = FactoryGirl.create(:project, name: 'Typora')
-    FactoryGirl.create(:ticket, project: typora, title: 'Pegue brillo', description: 'Moar shiny, such wow!!')
+    ticket1 = FactoryGirl.create(:ticket, project: typora, title: 'Pegue brillo', description: 'Moar shiny, such wow!!')
+    ticket1.update(user: user)
 
     ie = FactoryGirl.create(:project, name: 'Internet Explorer')
-    FactoryGirl.create(:ticket, project: ie, title: 'Standards compliance', description: 'Isn\'t a joke.')
+    ticket2 = FactoryGirl.create(:ticket, project: ie, title: 'Standards compliance', description: 'Isn\'t a joke.')
+    ticket2.update(user: user)
 
     visit '/'
   end
